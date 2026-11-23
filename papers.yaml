@@ -88,13 +88,11 @@
   year: 2025
   link: https://arxiv.org/abs/2505.14674
   arxiv: '2505.14674'
-  categories: []
-  primary: null
+  categories:
+  - judge-generative
+  primary: judge-generative
   code: https://huggingface.co/Reward-Reasoning
   note: Elo and knockout rewarding over n responses; implemented in rewardkit (`rewardkit rank`)
-  categories_override:
-  - judge-generative
-  primary_override: judge-generative
 - key: wen2025rm
   title: 'Rethinking Reward Model Evaluation: Are We Barking up the Wrong Tree?'
   venue: ICLR
