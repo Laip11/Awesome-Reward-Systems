@@ -1,0 +1,114 @@
+# Category tree for the paper list. It mirrors the structure of the survey.
+#
+# bib2yaml.py assigns categories from where the survey cites each paper.
+# A citation's location is its section file plus the path of headings above it.
+# The script tries the rules in order, and the first rule whose `file` matches
+# and whose `heading` regex (if any) matches the heading path wins.
+# Put specific rules before the fallback rule for the same file.
+#
+# render.py uses `groups` (in order) for the README layout.
+
+groups:
+  - id: background
+    title: Background and Related Surveys
+    survey: "§1"
+  - id: framework
+    title: Framework and Requirements
+    survey: "§2"
+  - id: specification
+    title: "Specification (S): What Counts as Success"
+    survey: "§3.1"
+  - id: evidence
+    title: "Evidence (E): What the Judge Gets to See"
+    survey: "§3.2"
+  - id: judgment
+    title: "Judgment (J): Who Decides"
+    survey: "§3.3"
+  - id: credit
+    title: "Credit Assignment and Aggregation (C)"
+    survey: "§3.4"
+  - id: cost-coupling
+    title: Cost and Coupled Designs
+    survey: "§3, §3.5, §3.6"
+  - id: failure
+    title: Failure Under Optimization
+    survey: "§4"
+  - id: monitoring
+    title: Monitoring and Localization
+    survey: "§5.1"
+  - id: adaptation
+    title: Anchored Adaptation
+    survey: "§5.2–5.3"
+  - id: rsi
+    title: Recursive Self-Improvement
+    survey: "§6"
+  - id: benchmarks
+    title: Benchmarks for Reward Systems
+    survey: "App. B"
+  - id: outlook
+    title: Open Challenges
+    survey: "§7"
+
+categories:
+  # §1
+  - {id: background, group: background, title: "Background and related surveys", file: 01-introduction}
+  - {id: background, group: background, title: "Background and related surveys", file: 00-abstract}
+  # §2
+  - {id: framework, group: framework, title: "Framework, preliminaries, and signal requirements", file: 02-framework}
+  # §3 wrapper
+  - {id: design-overview, group: cost-coupling, title: Static reward design (overview), file: 03-design}
+  # §3.1
+  - {id: spec-explicit, group: specification, title: Explicit specifications, file: 03a-specification, heading: "Explicit Specifications"}
+  - {id: spec-rubric, group: specification, title: Rubrics and criteria, file: 03a-specification, heading: "Criteria-Based"}
+  - {id: spec-comparative, group: specification, title: Comparative specifications (preferences), file: 03a-specification, heading: "Comparative"}
+  - {id: spec-interactive, group: specification, title: Interactive specifications (simulated users), file: 03a-specification, heading: "Interactive"}
+  - {id: spec-general, group: specification, title: Specification (general), file: 03a-specification}
+  # §3.2
+  - {id: evidence-sources, group: evidence, title: Evidence sources, file: 03b-evidence, heading: "Sources"}
+  - {id: evidence-access, group: evidence, title: Access modes (passive to active probing), file: 03b-evidence, heading: "Access Modes"}
+  - {id: evidence-general, group: evidence, title: Evidence (general), file: 03b-evidence}
+  # §3.3
+  - {id: judge-verifier, group: judgment, title: Rule-based and model-based verifiers, file: 03c-judgment, heading: "Verifiers"}
+  - {id: judge-discriminative, group: judgment, title: Discriminative reward models, file: 03c-judgment, heading: "Discriminative"}
+  - {id: judge-generative, group: judgment, title: "Generative, reasoning, agentic, and multi-agent judges", file: 03c-judgment, heading: "Generative Judges"}
+  - {id: judge-probability, group: judgment, title: Probability-based and self judgment, file: 03c-judgment, heading: "Probability-Based"}
+  - {id: judge-human, group: judgment, title: Human judgment, file: 03c-judgment, heading: "Human Judgment"}
+  - {id: judge-general, group: judgment, title: Judgment (general), file: 03c-judgment}
+  # §3.4
+  - {id: credit-assignment, group: credit, title: "Credit assignment (process rewards, step and agent credit)", file: 03d-credit, heading: "Credit Assignment:"}
+  - {id: credit-aggregation, group: credit, title: Aggregation, file: 03d-credit, heading: "Aggregation"}
+  - {id: credit-general, group: credit, title: Credit (general), file: 03d-credit}
+  # §3.5, §3.6
+  - {id: cost, group: cost-coupling, title: Cost and throughput, file: 03f-cost}
+  - {id: coupled, group: cost-coupling, title: Coupled designs, file: 03e-coupled}
+  # §4
+  - {id: failure-routes, group: failure, title: Exploitation and degradation, file: 04-failure, heading: "Two Routes"}
+  - {id: hack-spec, group: failure, title: Specification gaming, file: 04-failure, heading: "Specification Gaming"}
+  - {id: hack-evidence, group: failure, title: Evidence tampering, file: 04-failure, heading: "Evidence Tampering"}
+  - {id: hack-judge, group: failure, title: Judgment exploitation, file: 04-failure, heading: "Judgment Exploitation"}
+  - {id: hack-credit, group: failure, title: Credit and aggregation exploits, file: 04-failure, heading: "Credit and Aggregation Exploits"}
+  - {id: hack-general, group: failure, title: Reward hacking (general), file: 04-failure, heading: "Reward Hacking, Component"}
+  - {id: seams, group: failure, title: Failures at the seams, file: 04-failure, heading: "Seams"}
+  - {id: agent-risks, group: failure, title: Risks specific to agents, file: 04-failure, heading: "Risks Specific to Agents"}
+  - {id: defenses, group: failure, title: Static defenses, file: 04-failure, heading: "Static Defenses"}
+  - {id: failure-general, group: failure, title: Failure (general), file: 04-failure}
+  # §5
+  - {id: monitor-health, group: monitoring, title: Health indicators, file: 05-loop, heading: "Health Indicators"}
+  - {id: monitor-localization, group: monitoring, title: Localization and component benchmarks, file: 05-loop, heading: "Localization"}
+  - {id: monitor-general, group: monitoring, title: Monitoring (general), file: 05-loop, heading: "Monitoring:"}
+  - {id: adapt-spec, group: adaptation, title: Specification evolution, file: 05-loop, heading: "Specification Evolution"}
+  - {id: adapt-evidence, group: adaptation, title: Evidence expansion, file: 05-loop, heading: "Evidence Expansion"}
+  - {id: adapt-judge, group: adaptation, title: Judgment co-evolution, file: 05-loop, heading: "Judgment Co-Evolution"}
+  - {id: adapt-credit, group: adaptation, title: Credit curricula, file: 05-loop, heading: "Credit Curricula"}
+  - {id: adapt-joint, group: adaptation, title: Joint restructuring, file: 05-loop, heading: "Joint Restructuring"}
+  - {id: adapt-practice, group: adaptation, title: Principles and tests, file: 05-loop, heading: "in Practice"}
+  - {id: adapt-general, group: adaptation, title: Adaptation (general), file: 05-loop}
+  # §6
+  - {id: rsi-ladder, group: rsi, title: The autonomy ladder, file: 06-rsi, heading: "Autonomy Ladder"}
+  - {id: rsi-collapse, group: rsi, title: Loop collapse and the verification-generation asymmetry, file: 06-rsi, heading: "Loop Collapse"}
+  - {id: rsi-anchors, group: rsi, title: External anchors and graded oversight, file: 06-rsi, heading: "What Must Stay Outside"}
+  - {id: rsi-general, group: rsi, title: Recursive self-improvement (general), file: 06-rsi}
+  # §7, appendix
+  - {id: outlook, group: outlook, title: Open challenges, file: 07-outlook}
+  - {id: benchmarks, group: benchmarks, title: Component benchmarks, file: B-benchmarks}
+  - {id: notation, group: framework, title: Notation, file: A-notation}
