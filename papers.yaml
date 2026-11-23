@@ -71,8 +71,8 @@
   primary: failure-routes
 - key: wu2025metareward
   title: 'Meta-Rewarding Language Models: Self-Improving Alignment with LLM-as-a-Meta-Judge'
-  venue: arXiv
-  year: 2024
+  venue: EMNLP
+  year: 2025
   link: https://arxiv.org/abs/2407.19594
   arxiv: '2407.19594'
   categories:
@@ -81,6 +81,20 @@
   - rsi-collapse
   - rsi-anchors
   primary: rsi-ladder
+  note: implemented in rewardkit (`meta_rewarding`)
+- key: guo2025rrm
+  title: Reward Reasoning Models
+  venue: NeurIPS
+  year: 2025
+  link: https://arxiv.org/abs/2505.14674
+  arxiv: '2505.14674'
+  categories: []
+  primary: null
+  code: https://huggingface.co/Reward-Reasoning
+  note: Elo and knockout rewarding over n responses; implemented in rewardkit (`rewardkit rank`)
+  categories_override:
+  - judge-generative
+  primary_override: judge-generative
 - key: wen2025rm
   title: 'Rethinking Reward Model Evaluation: Are We Barking up the Wrong Tree?'
   venue: ICLR
@@ -2171,14 +2185,15 @@
   primary: spec-explicit
 - key: corpus251007743
   title: 'OpenRubrics: Towards Scalable Synthetic Rubric Generation for Reward Modeling and LLM Alignment'
-  venue: arXiv
-  year: 2025
+  venue: ACL
+  year: 2026
   link: https://arxiv.org/abs/2510.07743
   arxiv: '2510.07743'
   categories:
   - spec-rubric
   - monitor-localization
   primary: spec-rubric
+  note: implemented in rewardkit (`rubric_generator`, `rubric_judge`)
 - key: li2026ares
   title: 'ARES: Automated Rubric Synthesis for Scalable LLM Reinforcement Learning'
   venue: arXiv

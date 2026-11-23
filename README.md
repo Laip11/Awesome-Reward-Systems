@@ -33,7 +33,7 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 <!-- BEGIN PAPERS -->
 
-*401 papers. Each one appears once, under the section of the survey that discusses it most specifically.*
+*402 papers. Each one appears once, under the section of the survey that discusses it most specifically.*
 
 ## Contents
 
@@ -47,10 +47,10 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - [Evidence (E): What the Judge Gets to See](#evidence-e-what-the-judge-gets-to-see) (11)
   - [Evidence sources](#evidence-sources) (7)
   - [Access modes (passive to active probing)](#access-modes-passive-to-active-probing) (4)
-- [Judgment (J): Who Decides](#judgment-j-who-decides) (45)
+- [Judgment (J): Who Decides](#judgment-j-who-decides) (46)
   - [Rule-based and model-based verifiers](#rule-based-and-model-based-verifiers) (7)
   - [Discriminative reward models](#discriminative-reward-models) (5)
-  - [Generative, reasoning, agentic, and multi-agent judges](#generative-reasoning-agentic-and-multi-agent-judges) (24)
+  - [Generative, reasoning, agentic, and multi-agent judges](#generative-reasoning-agentic-and-multi-agent-judges) (25)
   - [Probability-based and self judgment](#probability-based-and-self-judgment) (8)
   - [Human judgment](#human-judgment) (1)
 - [Credit Assignment and Aggregation (C)](#credit-assignment-and-aggregation-c) (47)
@@ -151,13 +151,13 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - **DEEPRUBRIC: Evidence-Tree Rubric Supervision for Efficient Reinforcement Learning of Deep Research Agents** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2606.17029)
 - **Expert-Guided Rubrics as Dense Reward Signals for Reinforcement Learning in Non-Verifiable Domains** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2610.26932)
 - **Learning Query-Specific Rubrics from Human Preferences for DeepResearch Report Generation** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2602.03619)
+- **OpenRubrics: Towards Scalable Synthetic Rubric Generation for Reward Modeling and LLM Alignment** · *ACL 2026* [[paper]](https://arxiv.org/abs/2510.07743) — implemented in rewardkit (`rubric_generator`, `rubric_judge`)
 - **Reward Engine: Reward-Centric Self-Evolution for Open-Ended Tool Agents** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2610.22915)
 - **RUBAS: Rubric-Based Reinforcement Learning for Agent Safety** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2606.04051)
 - **RubricHub: A Comprehensive and Highly Discriminative Rubric Dataset via Automated Coarse-to-Fine Generation** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2601.08430)
 - **Task-Adaptive Rubrics for GUI Reward Modeling** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2608.24174)
 - **Auto-Rubric: Learning From Implicit Weights to Explicit Rubrics for Reward Modeling** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2510.17314)
 - **Checklists Are Better Than Reward Models For Aligning Language Models** · *NeurIPS 2025* [[paper]](https://arxiv.org/abs/2507.18624)
-- **OpenRubrics: Towards Scalable Synthetic Rubric Generation for Reward Modeling and LLM Alignment** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2510.07743)
 - **Reinforcement Learning with Rubric Anchors** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2508.12790)
 - **RewardAnything: Generalizable Principle-Following Reward Models** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2506.03637)
 - **Rubrics as Rewards: Reinforcement Learning Beyond Verifiable Domains** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2507.17746)
@@ -246,6 +246,7 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - **OpenReward: Learning to Reward Long-form Agentic Tasks via Reinforcement Learning** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2510.24636)
 - **Pairwise or Pointwise? Evaluating Feedback Protocols for Bias in LLM-Based Evaluation** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2504.14716)
 - **R3: Robust Rubric-Agnostic Reward Models** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2505.13388)
+- **Reward Reasoning Models** · *NeurIPS 2025* [[paper]](https://arxiv.org/abs/2505.14674) [[code]](https://huggingface.co/Reward-Reasoning) — Elo and knockout rewarding over n responses; implemented in rewardkit (`rewardkit rank`)
 - **Self-Generated Critiques Boost Reward Modeling for Language Models** · *ACL 2025*
 - **Think-RM: Enabling Long-Horizon Reasoning in Generative Reward Models** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2505.16265)
 - **Agent-as-a-Judge: Evaluate Agents with Agents** · *arXiv 2024* [[paper]](https://arxiv.org/abs/2410.10934)
@@ -571,12 +572,12 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - **RLAnything: Forge Environment, Policy, and Reward Model in Completely Dynamic RL System** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2602.02488)
 - **Absolute Zero: Reinforced Self-play Reasoning with Zero Data** · *NeurIPS 2025* [[paper]](https://arxiv.org/abs/2505.03335)
 - **Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2505.22954)
+- **Meta-Rewarding Language Models: Self-Improving Alignment with LLM-as-a-Meta-Judge** · *EMNLP 2025* [[paper]](https://arxiv.org/abs/2407.19594) — implemented in rewardkit (`meta_rewarding`)
 - **Mutual-Taught for Co-adapting Policy and Reward Models** · *ACL 2025* [[paper]](https://aclanthology.org/2025.acl-long.794/)
 - **R-Zero: Self-Evolving Reasoning LLM from Zero Data** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2508.05004)
 - **Toward Evaluative Thinking: Meta Policy Optimization with Evolving Reward Models** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2504.20157)
 - **ZeroGUI: Automating Online GUI Learning at Zero Human Cost** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2505.23762)
 - **Eureka: Human-Level Reward Design via Coding Large Language Models** · *ICLR 2024* [[paper]](https://arxiv.org/abs/2310.12931)
-- **Meta-Rewarding Language Models: Self-Improving Alignment with LLM-as-a-Meta-Judge** · *arXiv 2024* [[paper]](https://arxiv.org/abs/2407.19594)
 - **Self-Rewarding Language Models** · *ICML 2024* [[paper]](https://arxiv.org/abs/2401.10020)
 - **Text2Reward: Reward Shaping with Language Models for Reinforcement Learning** · *ICLR 2024* [[paper]](https://arxiv.org/abs/2309.11489)
 
