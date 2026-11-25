@@ -6,7 +6,9 @@
 # and whose `heading` regex (if any) matches the heading path wins.
 # Put specific rules before the fallback rule for the same file.
 #
-# render.py uses `groups` (in order) for the README layout.
+# render.py uses `groups` (in order) for the README layout. A group may carry a
+# `figure` ({src, alt, caption}) shown under its heading; images in figures/ are
+# exported from the survey's SVGs by scripts/export_figures.py.
 
 groups:
   - id: background
@@ -39,9 +41,24 @@ groups:
   - id: adaptation
     title: Co-evolution and Anchored Adaptation
     survey: "§5.2–5.3"
+    figure:
+      src: figures/coevolution-illustration.jpg
+      alt: Co-evolution of the policy and the reward system over three rounds, with a fixed anchor
+      caption: >-
+        Co-evolution under anchored adaptation. Over rounds of the outer loop the reward system is
+        revised alongside the policy: the specification sharpens, evidence and judgment become finer, and credit
+        moves to finer units. The anchor does not move: it supplies the monitoring reference and the acceptance
+        evidence, so the reward follows the policy without drifting with it.
   - id: rsi
     title: Recursive Self-Improvement
     survey: "§6"
+    figure:
+      src: figures/rsi-illustration.jpg
+      alt: Unanchored versus anchored self-improvement of an agent that supplies its own reward
+      caption: >-
+        Boundaries of reward-level self-improvement. Left: an agent that evaluates only itself
+        drifts from the true goal while its self-assigned reward keeps rising. Right: the agent supplies the same
+        functions, but its reference stays outside the agent and a person sets its authority over its own checks.
   - id: benchmarks
     title: Benchmarks for Reward Systems
     survey: "App. B"

@@ -12,8 +12,10 @@ This is the companion list for the survey:
 > 📄 Paper: *coming soon* · 🛠️ Code: [rewardkit](https://github.com/OWNER/rewardkit), training recipes for reward models and judges
 
 <p align="center">
-  <img src="figures/reward-system-illustration.svg" width="90%" alt="A reward system as specification, evidence, judgment, and credit"/>
+  <img src="figures/reward-system-illustration.jpg" width="90%" alt="A scalar reward model versus a reward system of specification, evidence, judgment, and credit"/>
 </p>
+
+*From a scalar reward model to a reward system. Left: one opaque call scores a fake goal at r = 0.9, so the shortcut is rewarded. Right: specification, evidence, judgment, and credit split the decision, so the hack is caught and each step can be inspected and repaired.*
 
 ## The Framework in One Paragraph
 
@@ -27,6 +29,7 @@ The list is generated from the survey's bibliography, so the two stay in sync:
 pip install pyyaml
 python scripts/bib2yaml.py --survey /path/to/survey-latex   # references.bib + sections/ -> papers.yaml
 python scripts/render.py                                     # papers.yaml -> README.md
+python scripts/export_figures.py --survey /path/to/survey-latex  # survey SVG figures -> figures/*.jpg (needs Chromium + Pillow)
 ```
 
 To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -503,6 +506,12 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 > Survey §5.2–5.3
 
+<p align="center">
+  <img src="figures/coevolution-illustration.jpg" width="90%" alt="Co-evolution of the policy and the reward system over three rounds, with a fixed anchor"/>
+</p>
+
+*Co-evolution under anchored adaptation. Over rounds of the outer loop the reward system is revised alongside the policy: the specification sharpens, evidence and judgment become finer, and credit moves to finer units. The anchor does not move: it supplies the monitoring reference and the acceptance evidence, so the reward follows the policy without drifting with it.*
+
 ### Specification evolution
 
 - **ATGen: Adversarial Reinforcement Learning for Test Case Generation** · *ICLR 2026* [[paper]](https://arxiv.org/abs/2510.14635)
@@ -568,6 +577,12 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 ## Recursive Self-Improvement
 
 > Survey §6
+
+<p align="center">
+  <img src="figures/rsi-illustration.jpg" width="90%" alt="Unanchored versus anchored self-improvement of an agent that supplies its own reward"/>
+</p>
+
+*Boundaries of reward-level self-improvement. Left: an agent that evaluates only itself drifts from the true goal while its self-assigned reward keeps rising. Right: the agent supplies the same functions, but its reference stays outside the agent and a person sets its authority over its own checks.*
 
 ### The autonomy ladder
 

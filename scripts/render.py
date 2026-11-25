@@ -51,6 +51,14 @@ def sort_key(p: dict):
     return (-year, p["title"].lower())
 
 
+def figure(f: dict) -> str:
+    """An optional group figure from taxonomy.yaml: {src, alt, caption}."""
+    html = f'<p align="center">\n  <img src="{f['src']}" width="90%" alt="{f['alt']}"/>\n</p>\n'
+    if f.get("caption"):
+        html += f"\n*{f['caption'].strip()}*\n"
+    return html
+
+
 def build(papers: list[dict], taxonomy: dict) -> str:
     cat_title: "OrderedDict[str, str]" = OrderedDict()
     cat_group: dict[str, str] = {}
@@ -109,6 +117,8 @@ def build(papers: list[dict], taxonomy: dict) -> str:
             continue
         out.append(f"## {g['title']}\n")
         out.append(f"> Survey {g['survey']}\n")
+        if g.get("figure"):
+            out.append(figure(g["figure"]))
         for c in cats:
             if len(cats) > 1:
                 out.append(f"### {cat_title[c]}\n")
