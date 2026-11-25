@@ -1,14 +1,14 @@
-# Awesome Reward Systems for Agent Learning
+# Awesome Reward Systems for Evolving LLM Agents
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-A curated list of papers on **reward systems for training LLM agents**: how rewards are specified, what evidence a judge sees, how verdicts are made and credited, how rewards fail under optimization, and how to monitor and adapt them without losing an independent anchor.
+A curated list of papers on **reward systems for training LLM agents**, following the survey's three steps: from a scalar reward model to a **reward system** of components, from a fixed reward system to one that **co-evolves** with the policy, and toward **recursive self-improvement**, where the agent supplies its own reward.
 
 This is the companion list for the survey:
 
-> **Reward Systems for Agent Learning: Design, Failure, and Anchored Adaptation**
+> **From Scalar Reward Models to Reward Systems for Evolving LLM Agents**
 > 📄 Paper: *coming soon* · 🛠️ Code: [rewardkit](https://github.com/OWNER/rewardkit), training recipes for reward models and judges
 
 <p align="center">
@@ -17,7 +17,7 @@ This is the companion list for the survey:
 
 ## The Framework in One Paragraph
 
-An agent's reward is not one function but an assembly of four components: a **specification** (S) of what counts as success, the **evidence** (E) a judge gets to see, the **judgment** (J) that compares the two, and the **credit** rule (C) that maps verdicts onto learning units. The list follows the survey: static design of each component (§3), how adequate rewards fail under optimization (§4), closed-loop monitoring and anchored adaptation (§5), the limits of recursive self-improvement (§6), and benchmarks for reward systems (Appendix B).
+An agent's reward is not one opaque call but an assembly of four components: a **specification** (S) of what counts as success, the **evidence** (E) a judge gets to see, the **judgment** (J) that compares the two, and the **credit** rule (C) that maps verdicts onto learning units. Its signal should be faithful, discriminative, and consistent, and stay robust and covering under optimization. The list follows the survey: where error and cost originate in each component (§3), why fixed reward systems fail under optimization (§4), co-evolving reward systems with monitoring and **anchored adaptation**, where components may track the policy but the monitoring reference and the evidence that accepts updates stay independent of it (§5), the boundaries of recursive self-improvement (§6), benchmarks for reward systems (Appendix B), and monitoring signals by requirement (Appendix C).
 
 ## How This List Is Maintained
 
@@ -33,58 +33,59 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 <!-- BEGIN PAPERS -->
 
-*402 papers. Each one appears once, under the section of the survey that discusses it most specifically.*
+*407 papers. Each one appears once, under the section of the survey that discusses it most specifically.*
 
 ## Contents
 
-- [Background and Related Surveys](#background-and-related-surveys) (15)
+- [Background and Related Surveys](#background-and-related-surveys) (16)
 - [Framework and Requirements](#framework-and-requirements) (7)
 - [Specification (S): What Counts as Success](#specification-s-what-counts-as-success) (43)
   - [Explicit specifications](#explicit-specifications) (9)
   - [Rubrics and criteria](#rubrics-and-criteria) (25)
   - [Comparative specifications (preferences)](#comparative-specifications-preferences) (4)
   - [Interactive specifications (simulated users)](#interactive-specifications-simulated-users) (5)
-- [Evidence (E): What the Judge Gets to See](#evidence-e-what-the-judge-gets-to-see) (11)
-  - [Evidence sources](#evidence-sources) (7)
+- [Evidence (E): What the Judge Gets to See](#evidence-e-what-the-judge-gets-to-see) (13)
+  - [Evidence sources](#evidence-sources) (9)
   - [Access modes (passive to active probing)](#access-modes-passive-to-active-probing) (4)
 - [Judgment (J): Who Decides](#judgment-j-who-decides) (46)
   - [Rule-based and model-based verifiers](#rule-based-and-model-based-verifiers) (7)
-  - [Discriminative reward models](#discriminative-reward-models) (5)
+  - [Discriminative reward models](#discriminative-reward-models) (4)
   - [Generative, reasoning, agentic, and multi-agent judges](#generative-reasoning-agentic-and-multi-agent-judges) (25)
   - [Probability-based and self judgment](#probability-based-and-self-judgment) (8)
-  - [Human judgment](#human-judgment) (1)
-- [Credit Assignment and Aggregation (C)](#credit-assignment-and-aggregation-c) (47)
-  - [Credit assignment (process rewards, step and agent credit)](#credit-assignment-process-rewards-step-and-agent-credit) (31)
-  - [Aggregation](#aggregation) (16)
-- [Cost and Coupled Designs](#cost-and-coupled-designs) (9)
-  - [Cost and throughput](#cost-and-throughput) (7)
+  - [Human judgment](#human-judgment) (2)
+- [Credit Assignment and Aggregation (C)](#credit-assignment-and-aggregation-c) (48)
+  - [Credit assignment (process rewards, step and agent credit)](#credit-assignment-process-rewards-step-and-agent-credit) (30)
+  - [Aggregation](#aggregation) (18)
+- [Cost and Coupled Designs](#cost-and-coupled-designs) (11)
+  - [Cost and throughput](#cost-and-throughput) (9)
   - [Coupled designs](#coupled-designs) (2)
 - [Failure Under Optimization](#failure-under-optimization) (64)
-  - [Exploitation and degradation](#exploitation-and-degradation) (22)
+  - [Exploitation and degradation](#exploitation-and-degradation) (21)
   - [Specification gaming](#specification-gaming) (3)
   - [Evidence tampering](#evidence-tampering) (5)
   - [Judgment exploitation](#judgment-exploitation) (8)
   - [Credit and aggregation exploits](#credit-and-aggregation-exploits) (2)
   - [Reward hacking (general)](#reward-hacking-general) (1)
   - [Failures at the seams](#failures-at-the-seams) (1)
-  - [Risks specific to agents](#risks-specific-to-agents) (14)
+  - [Risks specific to agents](#risks-specific-to-agents) (15)
   - [Static defenses](#static-defenses) (8)
 - [Monitoring and Localization](#monitoring-and-localization) (26)
   - [Health indicators](#health-indicators) (22)
   - [Localization and component benchmarks](#localization-and-component-benchmarks) (3)
   - [Monitoring (general)](#monitoring-general) (1)
-- [Anchored Adaptation](#anchored-adaptation) (45)
-  - [Specification evolution](#specification-evolution) (16)
-  - [Judgment co-evolution](#judgment-co-evolution) (7)
+- [Co-evolution and Anchored Adaptation](#co-evolution-and-anchored-adaptation) (45)
+  - [Specification evolution](#specification-evolution) (17)
+  - [Judgment co-evolution](#judgment-co-evolution) (6)
   - [Credit curricula](#credit-curricula) (8)
   - [Joint restructuring](#joint-restructuring) (2)
   - [Principles and tests](#principles-and-tests) (12)
-- [Recursive Self-Improvement](#recursive-self-improvement) (39)
-  - [The autonomy ladder](#the-autonomy-ladder) (16)
+- [Recursive Self-Improvement](#recursive-self-improvement) (37)
+  - [The autonomy ladder](#the-autonomy-ladder) (15)
   - [Loop collapse and the verification-generation asymmetry](#loop-collapse-and-the-verification-generation-asymmetry) (18)
-  - [External anchors and graded oversight](#external-anchors-and-graded-oversight) (4)
+  - [External anchors and graded oversight](#external-anchors-and-graded-oversight) (3)
   - [Recursive self-improvement (general)](#recursive-self-improvement-general) (1)
 - [Benchmarks for Reward Systems](#benchmarks-for-reward-systems) (35)
+- [Open Challenges](#open-challenges) (1)
 - [Additional References](#additional-references) (15)
 
 ## Background and Related Surveys
@@ -95,6 +96,7 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - **A Survey on Rubric-Guided Reinforcement Learning for Language Models** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2608.27505)
 - **GUI Agents with Reinforcement Learning: Toward Digital Inhabitants** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2604.27955)
 - **Reward Hacking in the Era of Large Models: Mechanisms, Emergent Misalignment, Challenges** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2604.13602)
+- **Steering LLMs via Scalable Interactive Oversight** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2602.04210)
 - **A Comprehensive Survey of Reward Models: Taxonomy, Applications, Challenges, and Future** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2504.12328)
 - **A Comprehensive Survey of Self-Evolving AI Agents: A New Paradigm Bridging Foundation Models and Lifelong Agentic Systems** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2508.07407)
 - **A Survey of Process Reward Models: From Outcome Signals to Process Supervisions for Large Language Models** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2510.08049)
@@ -196,7 +198,9 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - **Reinforcement Learning with Robust Rubric Rewards** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2605.30244)
 - **Rubric-Grounded RL: Structured Judge Rewards for Generalizable Reasoning** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2605.08061)
 - **Safe and Scalable Web Agent Learning via Recreated Websites** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2603.10505)
+- **MobileRL: Online Agentic Reinforcement Learning for Mobile GUI Agents** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2509.18119)
 - **Scaling Agent Learning via Experience Synthesis** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2511.03773)
+- **AndroidWorld: A Dynamic Benchmarking Environment for Autonomous Agents** · *arXiv 2024* [[paper]](https://arxiv.org/abs/2405.14573)
 
 ### Access modes (passive to active probing)
 
@@ -226,7 +230,6 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - **Pre-Trained Policy Discriminators are General Reward Models** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2507.05197)
 - **Skywork-Reward-V2: Scaling Preference Data Curation via Human-AI Synergy** · *ICLR 2025* [[paper]](https://arxiv.org/abs/2507.01352)
 - **Interpretable Preferences via Multi-Objective Reward Modeling and Mixture-of-Experts** · *ACL Findings 2024* [[paper]](https://aclanthology.org/2024.findings-emnlp.620/)
-- **Let's Verify Step by Step** · *ICLR 2024*
 - **Rank Analysis of Incomplete Block Designs: I. The Method of Paired Comparisons** · *Biometrika 1952*
 
 ### Generative, reasoning, agentic, and multi-agent judges
@@ -271,6 +274,7 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 ### Human judgment
 
 - **Reinforcement Learning from User Feedback** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2505.14946)
+- **Llama 2: Open Foundation and Fine-Tuned Chat Models** · *arXiv 2023* [[paper]](https://arxiv.org/abs/2307.09288)
 
 <p align="right"><a href="#contents">back to top</a></p>
 
@@ -308,7 +312,6 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - **VinePPO: Refining Credit Assignment in RL Training of LLMs** · *ICML 2025* [[paper]](https://arxiv.org/abs/2410.01679)
 - **ArCHer: Training Language Model Agents via Hierarchical Multi-Turn RL** · *arXiv 2024* [[paper]](https://arxiv.org/abs/2402.19446)
 - **DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models** · *arXiv 2024* [[paper]](https://arxiv.org/abs/2402.03300)
-- **Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations** · *ACL 2024* [[paper]](https://aclanthology.org/2024.acl-long.510/)
 - **Offline Reinforcement Learning for LLM Multi-Step Reasoning** · *arXiv 2024* [[paper]](https://arxiv.org/abs/2412.16145)
 - **Rewarding Progress: Scaling Automated Process Verifiers for LLM Reasoning** · *arXiv 2024* [[paper]](https://arxiv.org/abs/2410.08146)
 
@@ -328,6 +331,8 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - **Look Before You Leap: A GUI-Critic-R1 Model for Pre-Operative Error Diagnosis in GUI Automation** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2506.04614)
 - **Process Reward Models for LLM Agents: Practical Framework and Directions** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2502.10325)
 - **Web-Shepherd: Advancing PRMs for Reinforcing Web Agents** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2505.15277)
+- **Let's Verify Step by Step** · *ICLR 2024*
+- **Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations** · *ACL 2024* [[paper]](https://aclanthology.org/2024.acl-long.510/)
 - **Safe RLHF: Safe Reinforcement Learning from Human Feedback** · *ICLR 2024*
 - **Fine-Grained Human Feedback Gives Better Rewards for Language Model Training** · *NeurIPS 2023*
 
@@ -341,7 +346,9 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 - **Audit Where Hacks Pay: Budgeted Strong-Verifier Audits Against Reward Hacking in GRPO** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2610.35716)
 - **Efficient Resource-Shiftable RL Post-training with Generative Rewards** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2610.16866)
+- **Small Language Models as Judges for Rubric-Based Reinforcement Learning** · *ACL Findings 2026* [[paper]](https://arxiv.org/abs/2608.30005)
 - **Act Only When It Pays: Efficient Reinforcement Learning for LLM Reasoning via Selective Rollouts** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2506.02177)
+- **Breaking the Exploration Bottleneck: Rubric-Scaffolded Reinforcement Learning for General LLM Reasoning** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2508.16949)
 - **DeepSeek-R1 Incentivizes Reasoning in LLMs through Reinforcement Learning** · *Nature 2025* [[paper]](https://www.nature.com/articles/s41586-025-09422-z)
 - **Enhancing Large Language Model Reasoning with Reward Models: An Analytical Survey** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2510.01925)
 - **Inference-Time Scaling for Generalist Reward Modeling** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2504.02495)
@@ -376,7 +383,6 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - **School of Reward Hacks: Hacking harmless tasks generalizes to misaligned behavior in LLMs** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2508.17511)
 - **WebRL: Training LLM Web Agents via Self-Evolving Online Curriculum Reinforcement Learning** · *ICLR 2025* [[paper]](https://arxiv.org/abs/2411.02337)
 - **Scaling Laws for Reward Model Overoptimization in Direct Alignment Algorithms** · *NeurIPS 2024* [[paper]](https://arxiv.org/abs/2406.02900)
-- **Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models** · *arXiv 2024* [[paper]](https://arxiv.org/abs/2406.10162)
 - **A Baseline Analysis of Reward Models' Ability To Accurately Analyze Foundation Models Under Distribution Shift** · *arXiv 2023* [[paper]](https://arxiv.org/abs/2311.14743)
 - **Scaling Laws for Reward Model Overoptimization** · *ICML 2023* [[paper]](https://arxiv.org/abs/2210.10760)
 - **Defining and Characterizing Reward Hacking** · *NeurIPS 2022* [[paper]](https://proceedings.neurips.cc/paper_files/paper/2022/hash/3d719fee332caa23d5038b8a90e81796-Abstract-Conference.html)
@@ -436,6 +442,7 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - **RAGEN: Understanding Self-Evolution in LLM Agents via Multi-Turn Reinforcement Learning** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2504.20073)
 - **Unlocking the Power of Multi-Agent LLM for Reasoning: From Lazy Agents to Deliberation** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2511.02303)
 - **Feedback Loops With Language Models Drive In-Context Reward Hacking** · *ICML 2024* [[paper]](https://arxiv.org/abs/2402.06627)
+- **Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models** · *arXiv 2024* [[paper]](https://arxiv.org/abs/2406.10162)
 - **Concrete Problems in AI Safety** · *arXiv 2016* [[paper]](https://arxiv.org/abs/1606.06565)
 
 ### Static defenses
@@ -453,7 +460,7 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Monitoring and Localization
 
-> Survey §5.1
+> Survey §5.1, App. C
 
 ### Health indicators
 
@@ -492,7 +499,7 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 <p align="right"><a href="#contents">back to top</a></p>
 
-## Anchored Adaptation
+## Co-evolution and Anchored Adaptation
 
 > Survey §5.2–5.3
 
@@ -510,6 +517,7 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - **Rubric Rewards from Item Response Theory** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2609.35646)
 - **Veritas: A Verifier Generation Harness for Agent Tasks** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2611.13336)
 - **Co-Evolving LLM Coder and Unit Tester via Reinforcement Learning** · *NeurIPS 2025*
+- **R-Zero: Self-Evolving Reasoning LLM from Zero Data** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2508.05004)
 - **Self-Challenging Language Model Agents** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2506.01716)
 - **Self-Questioning Language Models** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2508.03682)
 - **SPIRAL: Self-Play on Zero-Sum Games Incentivizes Reasoning via Multi-Agent Multi-Turn Reinforcement Learning** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2506.24119)
@@ -523,7 +531,6 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - **Kimi K2: Open Agentic Intelligence** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2507.20534)
 - **Off-Policy Corrected Reward Modeling for Reinforcement Learning from Human Feedback** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2507.15507)
 - **Adversarial Preference Optimization: Enhancing Your Alignment via RM-LLM Game** · *arXiv 2023* [[paper]](https://arxiv.org/abs/2311.08045)
-- **Llama 2: Open Foundation and Fine-Tuned Chat Models** · *arXiv 2023* [[paper]](https://arxiv.org/abs/2307.09288)
 
 ### Credit curricula
 
@@ -574,7 +581,6 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 - **Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2505.22954)
 - **Meta-Rewarding Language Models: Self-Improving Alignment with LLM-as-a-Meta-Judge** · *EMNLP 2025* [[paper]](https://arxiv.org/abs/2407.19594) — implemented in rewardkit (`meta_rewarding`)
 - **Mutual-Taught for Co-adapting Policy and Reward Models** · *ACL 2025* [[paper]](https://aclanthology.org/2025.acl-long.794/)
-- **R-Zero: Self-Evolving Reasoning LLM from Zero Data** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2508.05004)
 - **Toward Evaluative Thinking: Meta Policy Optimization with Evolving Reward Models** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2504.20157)
 - **ZeroGUI: Automating Online GUI Learning at Zero Human Cost** · *arXiv 2025* [[paper]](https://arxiv.org/abs/2505.23762)
 - **Eureka: Human-Level Reward Design via Coding Large Language Models** · *ICLR 2024* [[paper]](https://arxiv.org/abs/2310.12931)
@@ -604,7 +610,6 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ### External anchors and graded oversight
 
-- **Steering LLMs via Scalable Interactive Oversight** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2602.04210)
 - **Towards Scalable Oversight via Partitioned Human Supervision** · *ICLR 2026* [[paper]](https://arxiv.org/abs/2510.22500)
 - **Weak Critics Make Strong Learners: On-Policy Critique Distillation for Scalable Oversight** · *arXiv 2026* [[paper]](https://arxiv.org/abs/2606.00424)
 - **Super(ficial)-alignment: Strong Models May Deceive Weak Models in Weak-to-Strong Generalization** · *arXiv 2024* [[paper]](https://arxiv.org/abs/2406.11431)
@@ -657,6 +662,14 @@ To add a paper or a code link, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 <p align="right"><a href="#contents">back to top</a></p>
 
+## Open Challenges
+
+> Survey §7
+
+- **Verlog: Context-lite Multi-turn Reinforcement Learning Framework for Long-Horizon LLM Agents** · *NeurIPS 2025 Workshop on Multi-Turn Interactions in Large Language Models 2025* [[paper]](https://openreview.net/forum?id=GmodkWwMV3)
+
+<p align="right"><a href="#contents">back to top</a></p>
+
 ## Additional References
 
 Papers in the survey's bibliography that are not tied to a single section.
@@ -685,7 +698,7 @@ If this list or the survey helps your work, please cite:
 
 ```bibtex
 @article{rewardsystems2026,
-  title   = {Reward Systems for Agent Learning: Design, Failure, and Anchored Adaptation},
+  title   = {From Scalar Reward Models to Reward Systems for Evolving LLM Agents},
   author  = {TODO},
   journal = {arXiv preprint arXiv:TODO},
   year    = {2026}

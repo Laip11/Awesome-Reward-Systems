@@ -35,9 +35,9 @@ groups:
     survey: "§4"
   - id: monitoring
     title: Monitoring and Localization
-    survey: "§5.1"
+    survey: "§5.1, App. C"
   - id: adaptation
-    title: Anchored Adaptation
+    title: Co-evolution and Anchored Adaptation
     survey: "§5.2–5.3"
   - id: rsi
     title: Recursive Self-Improvement
@@ -96,6 +96,8 @@ categories:
   - {id: monitor-health, group: monitoring, title: Health indicators, file: 05-loop, heading: "Health Indicators"}
   - {id: monitor-localization, group: monitoring, title: Localization and component benchmarks, file: 05-loop, heading: "Localization"}
   - {id: monitor-general, group: monitoring, title: Monitoring (general), file: 05-loop, heading: "Monitoring:"}
+  # Appendix C collects the health indicators of §5.1 by requirement
+  - {id: monitor-health, group: monitoring, title: Health indicators, file: C-signals}
   - {id: adapt-spec, group: adaptation, title: Specification evolution, file: 05-loop, heading: "Specification Evolution"}
   - {id: adapt-evidence, group: adaptation, title: Evidence expansion, file: 05-loop, heading: "Evidence Expansion"}
   - {id: adapt-judge, group: adaptation, title: Judgment co-evolution, file: 05-loop, heading: "Judgment Co-Evolution"}

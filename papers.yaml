@@ -65,10 +65,9 @@
   categories:
   - background
   - framework
-  - failure-routes
   - hack-general
   - agent-risks
-  primary: failure-routes
+  primary: agent-risks
 - key: wu2025metareward
   title: 'Meta-Rewarding Language Models: Self-Improving Alignment with LLM-as-a-Meta-Judge'
   venue: EMNLP
@@ -226,7 +225,7 @@
   - monitor-general
   - adapt-spec
   - rsi-ladder
-  primary: rsi-ladder
+  primary: adapt-spec
 - key: liu2025istar
   title: Agentic Reinforcement Learning with Implicit Step Rewards
   venue: arXiv
@@ -582,6 +581,7 @@
   - design-overview
   - spec-comparative
   - judge-discriminative
+  - judge-human
   - judge-general
   - cost
   primary: spec-comparative
@@ -617,7 +617,7 @@
   - judge-human
   - credit-assignment
   - credit-aggregation
-  primary: judge-discriminative
+  primary: credit-aggregation
 - key: zheng2023judging
   title: Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena
   venue: NeurIPS D&B
@@ -831,7 +831,8 @@
   categories:
   - background
   - credit-assignment
-  primary: credit-assignment
+  - credit-aggregation
+  primary: credit-aggregation
 - key: zhang2025lessons
   title: The Lessons of Developing Process Reward Models in Mathematical Reasoning
   venue: ACL Findings
@@ -915,13 +916,6 @@
   categories:
   - framework
   primary: framework
-- key: zelikman2022star
-  title: 'STaR: Bootstrapping Reasoning With Reasoning'
-  venue: NeurIPS
-  year: 2022
-  link: ''
-  categories: []
-  primary: null
 - key: touvron2023llama2
   title: 'Llama 2: Open Foundation and Fine-Tuned Chat Models'
   venue: arXiv
@@ -930,9 +924,10 @@
   arxiv: '2307.09288'
   categories:
   - background
+  - judge-human
   - adapt-judge
   - adapt-joint
-  primary: adapt-judge
+  primary: judge-human
 - key: gama2004ddm
   title: Learning with Drift Detection
   venue: Advances in Artificial Intelligence – SBIA 2004
@@ -1003,7 +998,6 @@
   categories:
   - background
   - coupled
-  - seams
   - monitor-localization
   primary: coupled
 - key: atinafu2026rewardhackingagents
@@ -1087,6 +1081,7 @@
   categories:
   - background
   - framework
+  - failure-routes
   - monitor-health
   primary: monitor-health
 - key: liu2026arbor
@@ -1117,14 +1112,6 @@
   categories:
   - adapt-spec
   primary: adapt-spec
-- key: correa2025iterativedeployment
-  title: Iterative Deployment Improves Planning Skills in LLMs
-  venue: arXiv
-  year: 2025
-  link: https://arxiv.org/abs/2512.24940
-  arxiv: '2512.24940'
-  categories: []
-  primary: null
 - key: zhang2025agenticrlsurvey
   title: 'The Landscape of Agentic Reinforcement Learning for LLMs: A Survey'
   venue: arXiv
@@ -1154,7 +1141,6 @@
   categories:
   - background
   - spec-rubric
-  - monitor-localization
   primary: spec-rubric
 - key: zhang2026cm2
   title: 'CM2: Reinforcement Learning with Checklist Rewards for Multi-Turn and Multi-Step Agentic Tool Use'
@@ -1277,7 +1263,6 @@
   - spec-rubric
   - hack-spec
   - hack-general
-  - monitor-localization
   - benchmarks
   primary: benchmarks
 - key: chen2026race
@@ -1332,6 +1317,7 @@
   arxiv: '2505.22203'
   categories:
   - judge-verifier
+  - failure-routes
   - hack-judge
   primary: judge-verifier
 - key: chen2025xverify
@@ -1602,6 +1588,7 @@
   arxiv: '2604.08178'
   categories:
   - background
+  - failure-routes
   - monitor-localization
   - benchmarks
   primary: benchmarks
@@ -1643,14 +1630,6 @@
   - rsi-ladder
   - rsi-collapse
   primary: rsi-ladder
-- key: fang2025webevolver
-  title: 'WebEvolver: Enhancing Web Agent Self-Improvement with Coevolving World Model'
-  venue: arXiv
-  year: 2025
-  link: https://arxiv.org/abs/2504.21024
-  arxiv: '2504.21024'
-  categories: []
-  primary: null
 - key: jain2025r2egym
   title: 'R2E-Gym: Procedural Environments and Hybrid Verifiers for Scaling Open-Weights SWE Agents'
   venue: arXiv
@@ -1775,6 +1754,8 @@
   arxiv: '2607.28609'
   categories:
   - background
+  - framework
+  - failure-routes
   - monitor-localization
   - benchmarks
   primary: benchmarks
@@ -1839,7 +1820,6 @@
   - background
   - hack-evidence
   - hack-general
-  - defenses
   - monitor-health
   - adapt-evidence
   - adapt-joint
@@ -1915,20 +1895,6 @@
   categories:
   - hack-spec
   primary: hack-spec
-- key: razin2024vanishing
-  title: Vanishing Gradients in Reinforcement Finetuning of Language Models
-  venue: ICLR
-  year: 2024
-  link: ''
-  categories: []
-  primary: null
-- key: razin2025teacher
-  title: What Makes a Reward Model a Good Teacher? An Optimization Perspective
-  venue: NeurIPS
-  year: 2025
-  link: ''
-  categories: []
-  primary: null
 - key: dai2024saferlhf
   title: 'Safe RLHF: Safe Reinforcement Learning from Human Feedback'
   venue: ICLR
@@ -1946,13 +1912,6 @@
   categories:
   - framework
   primary: framework
-- key: wang2025awm
-  title: Agent Workflow Memory
-  venue: ICML
-  year: 2025
-  link: ''
-  categories: []
-  primary: null
 - key: agrawal2026gepa
   title: 'GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning'
   venue: ICLR
@@ -2682,6 +2641,7 @@
   categories:
   - background
   - cost
+  - failure-routes
   - monitor-health
   primary: cost
 - key: song2025outcomeexplore
@@ -2694,14 +2654,6 @@
   - failure-routes
   - adapt-credit
   primary: failure-routes
-- key: dong2026agentworld
-  title: 'Agent-World: Scaling Real-World Environment Synthesis for Evolving General Agent Intelligence'
-  venue: arXiv
-  year: 2026
-  link: https://arxiv.org/abs/2604.18292
-  arxiv: '2604.18292'
-  categories: []
-  primary: null
 - key: yang2026tournament
   title: 'Tournament-GRPO: Group-Wise Tournament Rewards for Reinforcement Learning in Open-Ended Long-Form Generation'
   venue: arXiv
@@ -2711,15 +2663,6 @@
   categories:
   - adapt-credit
   primary: adapt-credit
-- key: sinha2026modecollapse
-  title: Expected Return Causes Outcome-Level Mode Collapse in Reinforcement Learning and How to Fix It with Inverse Probability Scaling
-  venue: arXiv
-  year: 2026
-  link: https://arxiv.org/abs/2601.21669
-  arxiv: '2601.21669'
-  categories:
-  - failure-routes
-  primary: failure-routes
 - key: motwani2026rcrl
   title: 'Rubric Curriculum RL: Exploiting the Generation-Verification Gap in Non-Verifiable Domains'
   venue: arXiv
@@ -3051,26 +2994,7 @@
   arxiv: '2602.04210'
   categories:
   - background
-  - rsi-anchors
-  primary: rsi-anchors
-- key: jin2026weakcritics
-  title: 'Weak Critics Make Strong Learners: On-Policy Critique Distillation for Scalable Oversight'
-  venue: arXiv
-  year: 2026
-  link: https://arxiv.org/abs/2606.00424
-  arxiv: '2606.00424'
-  categories:
-  - rsi-anchors
-  primary: rsi-anchors
-- key: yin2025partitioned
-  title: Towards Scalable Oversight via Partitioned Human Supervision
-  venue: ICLR
-  year: 2026
-  link: https://arxiv.org/abs/2510.22500
-  arxiv: '2510.22500'
-  categories:
-  - rsi-anchors
-  primary: rsi-anchors
+  primary: background
 - key: sun2026vericua
   title: 'VeriCUA: Verification as Agentic Exploration for Computer-Using Agents'
   venue: arXiv
@@ -3497,15 +3421,6 @@
   - background
   - credit-aggregation
   primary: credit-aggregation
-- key: mcaleese2024criticgpt
-  title: LLM Critics Help Catch LLM Bugs
-  venue: arXiv
-  year: 2024
-  link: https://arxiv.org/abs/2407.00215
-  arxiv: '2407.00215'
-  categories:
-  - judge-generative
-  primary: judge-generative
 - key: wang2023shepherd
   title: 'Shepherd: A Critic for Language Model Generation'
   venue: arXiv
@@ -3569,40 +3484,9 @@
   link: ''
   categories:
   - framework
+  - failure-routes
   - monitor-health
   primary: monitor-health
-- key: liu2025drgrpo
-  title: 'Understanding R1-Zero-Like Training: A Critical Perspective'
-  venue: arXiv
-  year: 2025
-  link: https://arxiv.org/abs/2503.20783
-  arxiv: '2503.20783'
-  categories: []
-  primary: null
-- key: liu2026gdpo
-  title: 'GDPO: Group reward-Decoupled Normalization Policy Optimization for Multi-reward RL Optimization'
-  venue: arXiv
-  year: 2026
-  link: https://arxiv.org/abs/2601.05242
-  arxiv: '2601.05242'
-  categories: []
-  primary: null
-- key: cook2024tick
-  title: 'TICKing All the Boxes: Generated Checklists Improve LLM Evaluation and Generation'
-  venue: arXiv
-  year: 2024
-  link: https://arxiv.org/abs/2410.03608
-  arxiv: '2410.03608'
-  categories: []
-  primary: null
-- key: bjarnason2026randomness
-  title: On Randomness in Agentic Evals
-  venue: arXiv
-  year: 2026
-  link: https://arxiv.org/abs/2602.07150
-  arxiv: '2602.07150'
-  categories: []
-  primary: null
 - key: openai2024sweverified
   title: Introducing SWE-bench Verified
   venue: https://openai.com/index/introducing-swe-bench-verified/
@@ -3611,7 +3495,6 @@
   categories:
   - background
   - coupled
-  - monitor-localization
   - benchmarks
   primary: benchmarks
 - key: ryu2026fork
@@ -3768,15 +3651,6 @@
   - background
   - rsi-collapse
   primary: rsi-collapse
-- key: pu2026surviveorcollapse
-  title: 'Survive or Collapse: The Asymmetric Roles of Data Gating and Reward Grounding in Self-Play RL'
-  venue: arXiv
-  year: 2026
-  link: https://arxiv.org/abs/2605.22217
-  arxiv: '2605.22217'
-  categories:
-  - rsi-collapse
-  primary: rsi-collapse
 - key: guo2026selfauthored
   title: Self-Authored Verification Is Unreliable in Heuristic Self-Improving Agents
   venue: arXiv
@@ -3862,34 +3736,6 @@
   categories:
   - spec-rubric
   primary: spec-rubric
-- key: singh2024restem
-  title: 'Beyond Human Data: Scaling Self-Training for Problem-Solving with Language Models'
-  venue: TMLR
-  year: 2024
-  link: ''
-  categories: []
-  primary: null
-- key: zhao2024expel
-  title: 'ExpeL: LLM Agents Are Experiential Learners'
-  venue: AAAI
-  year: 2024
-  link: ''
-  categories: []
-  primary: null
-- key: cronbach1972dependability
-  title: 'The Dependability of Behavioral Measurements: Theory of Generalizability for Scores and Profiles'
-  venue: Wiley
-  year: 1972
-  link: ''
-  categories: []
-  primary: null
-- key: vispoel2023multivariate
-  title: Applying Multivariate Generalizability Theory to Psychological Assessments
-  venue: Psychological Methods
-  year: 2023
-  link: https://doi.org/10.1037/met0000606
-  categories: []
-  primary: null
 - key: zhu2025abc
   title: Establishing Best Practices in Building Rigorous Agentic Benchmarks
   venue: NeurIPS D&B
@@ -3899,7 +3745,6 @@
   categories:
   - background
   - coupled
-  - monitor-localization
   - benchmarks
   primary: benchmarks
 - key: yu2025utboost
@@ -3910,7 +3755,6 @@
   categories:
   - background
   - coupled
-  - monitor-localization
   - benchmarks
   primary: benchmarks
 - key: zhang2025whowhen
@@ -4064,3 +3908,204 @@
   categories:
   - agent-risks
   primary: agent-risks
+- key: zhou2025ruscarl
+  title: 'Breaking the Exploration Bottleneck: Rubric-Scaffolded Reinforcement Learning for General LLM Reasoning'
+  venue: arXiv
+  year: 2025
+  link: https://arxiv.org/abs/2508.16949
+  arxiv: '2508.16949'
+  categories:
+  - cost
+  primary: cost
+- key: xie2026smalljudges
+  title: Small Language Models as Judges for Rubric-Based Reinforcement Learning
+  venue: ACL Findings
+  year: 2026
+  link: https://arxiv.org/abs/2608.30005
+  arxiv: '2608.30005'
+  categories:
+  - cost
+  primary: cost
+- key: chen2025verlog
+  title: 'Verlog: Context-lite Multi-turn Reinforcement Learning Framework for Long-Horizon LLM Agents'
+  venue: NeurIPS 2025 Workshop on Multi-Turn Interactions in Large Language Models
+  year: 2025
+  link: https://openreview.net/forum?id=GmodkWwMV3
+  categories:
+  - outlook
+  primary: outlook
+- key: rawles2024androidworld
+  title: 'AndroidWorld: A Dynamic Benchmarking Environment for Autonomous Agents'
+  venue: arXiv
+  year: 2024
+  link: https://arxiv.org/abs/2405.14573
+  arxiv: '2405.14573'
+  categories:
+  - evidence-sources
+  primary: evidence-sources
+- key: xu2025mobilerl
+  title: 'MobileRL: Online Agentic Reinforcement Learning for Mobile GUI Agents'
+  venue: arXiv
+  year: 2025
+  link: https://arxiv.org/abs/2509.18119
+  arxiv: '2509.18119'
+  categories:
+  - evidence-sources
+  primary: evidence-sources
+- key: zelikman2022star
+  title: 'STaR: Bootstrapping Reasoning With Reasoning'
+  venue: NeurIPS
+  year: 2022
+  link: ''
+  categories: []
+  primary: null
+- key: correa2025iterativedeployment
+  title: Iterative Deployment Improves Planning Skills in LLMs
+  venue: arXiv
+  year: 2025
+  link: https://arxiv.org/abs/2512.24940
+  arxiv: '2512.24940'
+  categories: []
+  primary: null
+- key: fang2025webevolver
+  title: 'WebEvolver: Enhancing Web Agent Self-Improvement with Coevolving World Model'
+  venue: arXiv
+  year: 2025
+  link: https://arxiv.org/abs/2504.21024
+  arxiv: '2504.21024'
+  categories: []
+  primary: null
+- key: razin2024vanishing
+  title: Vanishing Gradients in Reinforcement Finetuning of Language Models
+  venue: ICLR
+  year: 2024
+  link: ''
+  categories: []
+  primary: null
+- key: razin2025teacher
+  title: What Makes a Reward Model a Good Teacher? An Optimization Perspective
+  venue: NeurIPS
+  year: 2025
+  link: ''
+  categories: []
+  primary: null
+- key: wang2025awm
+  title: Agent Workflow Memory
+  venue: ICML
+  year: 2025
+  link: ''
+  categories: []
+  primary: null
+- key: dong2026agentworld
+  title: 'Agent-World: Scaling Real-World Environment Synthesis for Evolving General Agent Intelligence'
+  venue: arXiv
+  year: 2026
+  link: https://arxiv.org/abs/2604.18292
+  arxiv: '2604.18292'
+  categories: []
+  primary: null
+- key: sinha2026modecollapse
+  title: Expected Return Causes Outcome-Level Mode Collapse in Reinforcement Learning and How to Fix It with Inverse Probability Scaling
+  venue: arXiv
+  year: 2026
+  link: https://arxiv.org/abs/2601.21669
+  arxiv: '2601.21669'
+  categories:
+  - failure-routes
+  primary: failure-routes
+- key: jin2026weakcritics
+  title: 'Weak Critics Make Strong Learners: On-Policy Critique Distillation for Scalable Oversight'
+  venue: arXiv
+  year: 2026
+  link: https://arxiv.org/abs/2606.00424
+  arxiv: '2606.00424'
+  categories:
+  - rsi-anchors
+  primary: rsi-anchors
+- key: yin2025partitioned
+  title: Towards Scalable Oversight via Partitioned Human Supervision
+  venue: ICLR
+  year: 2026
+  link: https://arxiv.org/abs/2510.22500
+  arxiv: '2510.22500'
+  categories:
+  - rsi-anchors
+  primary: rsi-anchors
+- key: mcaleese2024criticgpt
+  title: LLM Critics Help Catch LLM Bugs
+  venue: arXiv
+  year: 2024
+  link: https://arxiv.org/abs/2407.00215
+  arxiv: '2407.00215'
+  categories:
+  - judge-generative
+  primary: judge-generative
+- key: liu2025drgrpo
+  title: 'Understanding R1-Zero-Like Training: A Critical Perspective'
+  venue: arXiv
+  year: 2025
+  link: https://arxiv.org/abs/2503.20783
+  arxiv: '2503.20783'
+  categories: []
+  primary: null
+- key: liu2026gdpo
+  title: 'GDPO: Group reward-Decoupled Normalization Policy Optimization for Multi-reward RL Optimization'
+  venue: arXiv
+  year: 2026
+  link: https://arxiv.org/abs/2601.05242
+  arxiv: '2601.05242'
+  categories: []
+  primary: null
+- key: cook2024tick
+  title: 'TICKing All the Boxes: Generated Checklists Improve LLM Evaluation and Generation'
+  venue: arXiv
+  year: 2024
+  link: https://arxiv.org/abs/2410.03608
+  arxiv: '2410.03608'
+  categories: []
+  primary: null
+- key: bjarnason2026randomness
+  title: On Randomness in Agentic Evals
+  venue: arXiv
+  year: 2026
+  link: https://arxiv.org/abs/2602.07150
+  arxiv: '2602.07150'
+  categories: []
+  primary: null
+- key: pu2026surviveorcollapse
+  title: 'Survive or Collapse: The Asymmetric Roles of Data Gating and Reward Grounding in Self-Play RL'
+  venue: arXiv
+  year: 2026
+  link: https://arxiv.org/abs/2605.22217
+  arxiv: '2605.22217'
+  categories:
+  - rsi-collapse
+  primary: rsi-collapse
+- key: singh2024restem
+  title: 'Beyond Human Data: Scaling Self-Training for Problem-Solving with Language Models'
+  venue: TMLR
+  year: 2024
+  link: ''
+  categories: []
+  primary: null
+- key: zhao2024expel
+  title: 'ExpeL: LLM Agents Are Experiential Learners'
+  venue: AAAI
+  year: 2024
+  link: ''
+  categories: []
+  primary: null
+- key: cronbach1972dependability
+  title: 'The Dependability of Behavioral Measurements: Theory of Generalizability for Scores and Profiles'
+  venue: Wiley
+  year: 1972
+  link: ''
+  categories: []
+  primary: null
+- key: vispoel2023multivariate
+  title: Applying Multivariate Generalizability Theory to Psychological Assessments
+  venue: Psychological Methods
+  year: 2023
+  link: https://doi.org/10.1037/met0000606
+  categories: []
+  primary: null
